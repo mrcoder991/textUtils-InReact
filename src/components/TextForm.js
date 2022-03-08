@@ -17,7 +17,7 @@ export default function TextForm(props) {
   const handleUpChange = (event) => {
     setText(event.target.value);
     setCopy("Copy to clipboard")
-    props.showAlert("Text copied to clipboard","success")
+    
   };
 
   const handleClrClick = () => {
@@ -36,6 +36,7 @@ export default function TextForm(props) {
       .catch(() => {
         alert("something went wrong");
       });
+      props.showAlert("Text copied to clipboard","success")
   };
 
   const handleExtraSpaces = () => {
@@ -64,7 +65,7 @@ export default function TextForm(props) {
       </div>
       <div className="container my-3" style={{color: props.mode === "light" ? "black" : "white"}}>
         <h2>Your text summery</h2>
-        <p>{text == "" ? 0 : text.split(" ").length} Words, {text.length} Characters</p>
+        <p>{text === "" ? 0 : text.split(" ").length} Words, {text.length} Characters</p>
         <p>{Math.floor(0.008 * text.length)} Minutes read</p>
         <h3>Preview</h3>
         <p>{text === "" ? "Type text in above box to preview here" : text}</p>

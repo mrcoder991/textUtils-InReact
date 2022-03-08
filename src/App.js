@@ -3,6 +3,14 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import About from "./components/About";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 
 
 
@@ -32,11 +40,18 @@ function App() {
   }
   return (
     <>
-      <Navbar title="Text-Utils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert}/>
-      <div className="container my-3">
-        <TextForm heading="Enter a Text to analyse" mode={mode} showAlert={showAlert}/>
-      </div>
+      <Router>
+        <Navbar title="Text-Utils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert}/>
+        <div className="container my-3">
+          <Routes>
+            exact used for exact matching of links
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/" element={<TextForm heading="Enter a Text to analyse" mode={mode} showAlert={showAlert} />} />
+        {/* <TextForm heading="Enter a Text to analyse" mode={mode} showAlert={showAlert}/> */}
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
