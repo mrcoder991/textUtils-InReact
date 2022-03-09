@@ -45,9 +45,9 @@ function App() {
         <Alert alert={alert}/>
         <div className="container my-3">
           <Routes>
-            exact used for exact matching of links
+          {/* exact used for exact matching of links */}
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/" element={<TextForm heading="Enter a Text to analyse" mode={mode} showAlert={showAlert} />} />
+        <Route exact path="/" element={<TextForm heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces" mode={mode} showAlert={showAlert} />} />
         {/* <TextForm heading="Enter a Text to analyse" mode={mode} showAlert={showAlert}/> */}
           </Routes>
         </div>
